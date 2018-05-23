@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_card_view"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    app:cardCornerRadius="4dp"
+    android:layout_gravity="center"
+
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       android:padding="8dp"
+       >
+       <ImageView
+           android:layout_width="110dp"
+           android:layout_height="220dp"
+           android:scaleType="centerCrop"
+           android:id="@+id/img_photo_card"
+           android:layout_marginBottom="4dp"
+           tools:src="@drawable/ic_android_black_24dp"/>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@+id/img_photo_card"
+           android:layout_toEndOf="@+id/img_photo_card"
+           android:id="@+id/tv_cardJudul"
+           android:textSize="16sp"
+           android:textStyle="bold"
+           tools:text="Android"
+           android:layout_marginBottom="8dp"
+           android:layout_marginRight="16dp"
+           android:layout_marginTop="5dp"
+           android:layout_marginLeft="16dp"
+
+
+           />
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="70dp"
+           android:layout_below="@+id/tv_cardJudul"
+           android:layout_toRightOf="@+id/img_photo_card"
+           android:layout_toEndOf="@+id/img_photo_card"
+           android:layout_marginLeft="16dp"
+           android:layout_marginRight="16dp"
+           android:layout_marginBottom="8dp"
+           android:id="@+id/tv_cardOverView"
+           tools:text="OverView"
+           />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+           android:layout_toRightOf="@+id/img_photo_card"
+           android:layout_toEndOf="@+id/img_photo_card"
+
+           android:orientation="horizontal"
+           android:layout_marginRight="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginBottom="8dp">
+           <Button
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/btn_favorite"
+               android:textSize="10sp"
+               android:text="@string/favorite"
+               style="@style/Widget.AppCompat.Button.Colored"
+               android:layout_weight="1"/>
+           <Button
+               android:id="@+id/btn_share"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="@string/share"
+               android:textSize="10sp"
+               style="@style/Widget.AppCompat.Button.Colored"
+               />
+
+       </LinearLayout>
+
+   </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+</android.support.v7.widget.CardView>

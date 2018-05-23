@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <group
+            android:id="@+id/viewGroup"
+            android:menuCategory="container"
+            app:showAsAction="always">
+            <item
+                android:id="@+id/action_list"
+                android:title="@string/menulist"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_grid"
+                android:title="@string/menugrid"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_CardView"
+                android:title="@string/menucard"
+                app:showAsAction="never" />
+            <item android:id="@+id/action_Setting"
+                android:title="@string/menusetting"
+                app:showAsAction="never"
+                />
+        </group>
+
+
+
+    <item android:id="@+id/cari"
+        android:title="@string/menucari"
+        android:icon="@drawable/ic_search_white_24dpp"
+        app:showAsAction="withText|always"
+        app:actionViewClass="android.widget.SearchView" />
+</menu>

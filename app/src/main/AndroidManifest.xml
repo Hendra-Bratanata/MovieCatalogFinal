@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hendrabratanata.moviecatalog">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon_movie"
+        android:label="@string/app_name"
+        android:logo="@drawable/ic_home_white_24dp"
+        android:roundIcon="@mipmap/icon_movie"
+        android:supportsRtl="true"
+        android:theme="@style/MyMaterialTheme">
+        <activity android:name=".Activity.DetaiMovie" />
+        <activity
+            android:name=".Activity.Navigation"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/MyMaterialTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.Upcoming"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_upcoming"
+            android:theme="@style/FullscreenTheme"/>
+        <activity
+            android:name=".Activity.nowShow"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_nowShow"
+            android:theme="@style/FullscreenTheme"/>
+    </application>
+
+</manifest>

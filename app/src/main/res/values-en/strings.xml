@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">MovieCatalog</string>
+    <string name="judul">Title</string>
+    <string name="score">Score</string>
+    <string name="rilis">Rilis</string>
+    <string name="overview">OverView</string>
+    <string name="relis">release</string>
+    <string name="kosong">no content</string>
+    <string name="reting">RETING :</string>
+    <string name="description">Description</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
+    <string name="home">HOME</string>
+    <string name="up">UPCOMING</string>
+    <string name="now">NOW PLAYING</string>
+    <string name="title_activity_tab_layout">Movie Catalog</string>
+    <string name="search_hint">Search Movie Title</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="welcome">Welcome to Movie Cataloge</string>
+    <string name="searchIntruks">
+        This is an app to view movie listings and details of the movie, you can do a movie title search in the search menu above
+    </string>
+    <string name="menulist">List View</string>
+    <string name="menugrid">Grid View</string>
+    <string name="menucard">Card View</string>
+    <string name="menucari">Find</string>
+    <string name="menusetting">Setting</string>
+</resources>

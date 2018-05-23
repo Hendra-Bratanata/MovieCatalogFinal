@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MovieCatalog</string>
+    <string name="judul">Judul</string>
+    <string name="score">Skor</string>
+    <string name="overview">Ikhtisar</string>
+    <string name="relis">release</string>
+    <string name="kosong">Kosong</string>
+    <string name="reting">RETING :</string>
+    <string name="description">Deskripsi</string>
+    <string name="favorite">Favorit</string>
+    <string name="share">Bagikan</string>
+    <string name="home">BERANDA</string>
+    <string name="up">AKAN TAYANG</string>
+    <string name="now">SEDANG TAYANG</string>
+    <string name="title_activity_tab_layout">Movie Catalog</string>
+    <string name="search_hint">Cari Judul film</string>
+
+
+    <string name="action_settings">Pengaturan</string>
+    <string name="welcome">Selamat Datang di Katalog Film</string>
+    <string name="searchIntruks">
+       Ini adalah aplikasi untuk melihat daftar film dan rincian film, Anda dapat melakukan pencarian judul film di menu pencarian di atas
+    </string>
+    <string name="menulist">List View</string>
+    <string name="menugrid">Grid View</string>
+    <string name="menucard">Card View</string>
+    <string name="menucari">Cari</string>
+    <string name="menusetting">Pengaturan</string>
+    <string name="judulfilm">Judul film </string>
+    <string name="tidak_ditemukan"> Tidak ditemukan,silahkan cari dengan judul lain</string>
+</resources>
