@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FavoriteApp</string>
+    <string name="favorites">favorite</string>
+    <string name="share">share</string>
+    <string name="buat_baru">Buat Baru</string>
+    <string name="delete">Delete</string>
+    <string name="judul">Judul</string>
+    <string name="reting">reting</string>
+    <string name="desc">description</string>
+    <string name="detail">Detail</string>
+</resources>
