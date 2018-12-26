@@ -108,7 +108,7 @@ public class UpcommingFragment extends Fragment implements LoaderManager.LoaderC
             rvCatagory.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
             tvKosong.setVisibility(View.GONE);
-          showCardView();
+          showListView();
 
 
 //            listView.setVisibility(View.VISIBLE);
@@ -174,14 +174,15 @@ public class UpcommingFragment extends Fragment implements LoaderManager.LoaderC
     }
     private void halamanDetail(MovieItem item){
         Intent inten = new Intent(getActivity(),DetaiMovie.class);
-        inten.putExtra(DetaiMovie.EXTRA_POSTER,item.getPoster());
-        inten.putExtra(DetaiMovie.EXTRA_BACKDROP,item.getBackdrop());
-        inten.putExtra(DetaiMovie.EXTRA_BAHASA,item.getBahasa());
-        inten.putExtra(DetaiMovie.EXTRA_SCORE,item.getScore());
-        inten.putExtra(DetaiMovie.EXTRA_DESC,item.getOverview());
-        inten.putExtra(DetaiMovie.EXTRA_RILIS,item.getRilis());
-        inten.putExtra(DetaiMovie.EXTRA_JUDUL,item.getJudul());
-        inten.putExtra(DetaiMovie.EXTRA_POPULAR,item.getPopular());
+        inten.putExtra(DetaiMovie.EXTRA_ITEM,item);
+//        inten.putExtra(DetaiMovie.EXTRA_POSTER,item.getPoster());
+//        inten.putExtra(DetaiMovie.EXTRA_BACKDROP,item.getBackdrop());
+//        inten.putExtra(DetaiMovie.EXTRA_BAHASA,item.getBahasa());
+//        inten.putExtra(DetaiMovie.EXTRA_SCORE,item.getScore());
+//        inten.putExtra(DetaiMovie.EXTRA_DESC,item.getOverview());
+//        inten.putExtra(DetaiMovie.EXTRA_RILIS,item.getRilis());
+//        inten.putExtra(DetaiMovie.EXTRA_JUDUL,item.getJudul());
+//        inten.putExtra(DetaiMovie.EXTRA_POPULAR,item.getPopular());
         startActivity(inten);
     }
     @Override

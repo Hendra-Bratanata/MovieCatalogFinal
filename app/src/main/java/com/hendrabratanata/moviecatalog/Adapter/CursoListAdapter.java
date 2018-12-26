@@ -1,7 +1,9 @@
 package com.hendrabratanata.moviecatalog.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
+import android.support.v4.content.CursorLoader;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.hendrabratanata.moviecatalog.Database.DatabaseContrac;
 import com.hendrabratanata.moviecatalog.POJO.MovieItem;
 import com.hendrabratanata.moviecatalog.R;
 
@@ -18,21 +21,27 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CategoryViewHolder> {
+import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.DESC;
+import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.JUDUL;
+import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.POSTER;
+import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.RELIS;
+import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.getColumnsString;
 
-    private Context context;
-    private ArrayList<MovieItem> listMovie = new ArrayList<>();
-    Cursor cursorListMovie;
+public class CursoListAdapter extends RecyclerView.Adapter<CursoListAdapter.CategoryViewHolder> {
 
-    public ListAdapter(Context context){
-        this.context = context;
+    private Activity activity;
+    private Cursor listMovie;
+
+
+    public CursoListAdapter(Activity activity){
+        this.activity = activity;
     }
 
-    public ArrayList<MovieItem> getListMovie() {
+    public Cursor getListMovie() {
         return listMovie;
     }
 
-    public void setListMovie(ArrayList<MovieItem> listMovie) {
+    public void setListMovie(Cursor listMovie) {
         this.listMovie = listMovie;
         notifyDataSetChanged();
     }
@@ -45,23 +54,33 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CategoryViewHo
 
     @Override
     public void onBindViewHolder(CategoryViewHolder holder, int position) {
-        holder.tvJudulList.setText(getListMovie().get(position).getJudul());
-        holder.tvOverViewList.setText(getListMovie().get(position).getOverview());
-        holder.tvRealisList.setText(getListMovie().get(position).getRilis());
-        String urlPoster = "http://image.tmdb.org/t/p/w185" + getListMovie().get(position).getPoster();
-        if (listMovie.get(position).getPoster().equalsIgnoreCase("null")) {
+        MovieItem movie = getItem(position);
+        holder.tvJudulList.setText(movie.getJudul());
+        holder.tvOverViewList.setText(movie.getOverview());
+        holder.tvRealisList.setText(movie.getRilis());
+        String urlPoster = "http://image.tmdb.org/t/p/w185" +movie.getPoster();
+        if (movie.getPoster().equalsIgnoreCase("null")) {
             holder.posterList.setImageResource(R.drawable.ic_broken_image_black_24dp);
         } else {
-            Glide.with(context)
+            Glide.with(activity)
                     .load(urlPoster)
                     .into(holder.posterList);
         }
 
     }
 
+    private MovieItem getItem(int position) {
+        if(!listMovie.moveToPosition(position)){
+            throw new IllegalStateException("Position invalid");
+
+        }
+        return new MovieItem(listMovie);
+    }
+
     @Override
     public int getItemCount() {
-        return getListMovie().size();
+       if(listMovie == null) return  0;
+       return  listMovie.getCount();
     }
 
     class CategoryViewHolder extends RecyclerView.ViewHolder{

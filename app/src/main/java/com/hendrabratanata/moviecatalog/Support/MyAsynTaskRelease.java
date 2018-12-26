@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MyAsynTask extends AsyncTaskLoader<ArrayList<MovieItem>> {
+public class MyAsynTaskRelease extends AsyncTaskLoader<ArrayList<MovieItem>> {
     private ArrayList<MovieItem> mdata;
     private Boolean mHasResault = false;
     private String movies;
@@ -28,7 +28,7 @@ public class MyAsynTask extends AsyncTaskLoader<ArrayList<MovieItem>> {
     private final static String API_KEY = "024d4ff8dc72a08fd9cbe68bb62148f6";
 
 
-    public MyAsynTask(final Context context, String movie, String type) {
+    public MyAsynTaskRelease(final Context context, String movie, String type) {
         super(context);
         onContentChanged();
         this.movies =movie;
@@ -68,7 +68,7 @@ public class MyAsynTask extends AsyncTaskLoader<ArrayList<MovieItem>> {
 
     @Override
     public ArrayList<MovieItem> loadInBackground() {
-        Log.d("tag", "loadInBackground: myasytask ");
+        Log.d("tag", "loadInBackground: ");
         SyncHttpClient client =new SyncHttpClient();
         final ArrayList<MovieItem> movieItemses =new ArrayList<>();
         String url="";
@@ -103,6 +103,7 @@ public class MyAsynTask extends AsyncTaskLoader<ArrayList<MovieItem>> {
                     String resault = new String(responseBody);
                     JSONObject responObject = new JSONObject(resault);
                     JSONArray list = responObject.getJSONArray("results");
+                    Log.d("tag", "Jumlah Data release"+list.length());
                     for (int i = 0; i < list.length(); i++) {
 
                         JSONObject movie = list.getJSONObject(i);

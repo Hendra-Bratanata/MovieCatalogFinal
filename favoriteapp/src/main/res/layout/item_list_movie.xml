@@ -8,7 +8,7 @@
     >
 
     <ImageView
-        android:id="@+id/img_poster"
+        android:id="@+id/img_poster_list"
         android:layout_width="80dp"
         android:layout_height="107dp"
         android:layout_margin="5dp"
@@ -21,7 +21,7 @@
         android:layout_margin="5dp">
 
         <TextView
-            android:id="@+id/tv_judul"
+            android:id="@+id/tv_judul_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/judul"
@@ -29,20 +29,20 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_overview"
+            android:id="@+id/tv_overview_list"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_gravity="bottom"
 
 
-            android:text="@string/overview"
+            android:text="overview"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tv_relis"
+            android:id="@+id/tv_relis_list"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:text="@string/relis"
+            android:text="relis"
             android:textSize="14dp"
             android:layout_gravity="bottom"
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/stackWidgetItem"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#000000"
+    android:padding="4dp">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/stackWidgetItemPicture"
+                android:layout_width="100dp"
+                android:layout_height="114dp"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/stackWidgetJudul"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:maxLines="7"
+            android:textColor="#fff"
+            android:text="@string/judulfilm"
+
+           />
+
+        <TextView
+            android:textStyle="italic|bold"
+            android:textColor="#f5fd0808"
+            android:id="@+id/stackWidgetRelis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/relis"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/stackWidgetDesc"
+                android:text="@string/description"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

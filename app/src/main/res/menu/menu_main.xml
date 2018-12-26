@@ -19,6 +19,9 @@
                 android:id="@+id/action_CardView"
                 android:title="@string/menucard"
                 app:showAsAction="never" />
+        <item android:id="@+id/action_notif"
+            android:title="Set Notifikasi"
+            app:showAsAction="never"/>
             <item android:id="@+id/action_Setting"
                 android:title="@string/menusetting"
                 app:showAsAction="never"

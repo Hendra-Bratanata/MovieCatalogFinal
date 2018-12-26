@@ -16,6 +16,9 @@
             android:id="@+id/nav_up"
             android:icon="@drawable/ic_skip_next_white_24dp"
             android:title="@string/up" />
+        <item android:id="@+id/nav_fav"
+            android:icon="@drawable/ic_favorite_red_24dp"
+            android:title="@string/favrite"/>
 
     </group>
 

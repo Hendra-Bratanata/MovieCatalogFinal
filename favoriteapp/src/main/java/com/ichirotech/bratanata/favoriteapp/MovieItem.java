@@ -1,24 +1,23 @@
-package com.hendrabratanata.moviecatalog.POJO;
+package com.ichirotech.bratanata.favoriteapp;
 
 import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.hendrabratanata.moviecatalog.Database.DatabaseContrac;
-
 import org.json.JSONObject;
 
 import static android.provider.BaseColumns._ID;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.BACKDROP;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.BAHASA;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.DESC;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.JUDUL;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.POPULAR;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.POSTER;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.RELIS;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.FavoriteColumns.SCORE;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.getColumnsInt;
-import static com.hendrabratanata.moviecatalog.Database.DatabaseContrac.getColumnsString;
+
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.BACKDROP;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.BAHASA;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.DESC;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.JUDUL;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.POPULAR;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.POSTER;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.RELIS;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.FavoriteColumns.SCORE;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.getColumnsInt;
+import static com.ichirotech.bratanata.favoriteapp.DatabaseContrac.getColumnsString;
 
 public class MovieItem implements Parcelable {
 
@@ -86,7 +85,7 @@ public class MovieItem implements Parcelable {
     }
 
 
-    public MovieItem (Cursor curso){
+    public MovieItem(Cursor curso){
         this.popular    = getColumnsString(curso,POPULAR);
         this.id         = getColumnsInt  (curso, _ID);
         this.poster     = getColumnsString(curso,POSTER);
@@ -177,7 +176,7 @@ public class MovieItem implements Parcelable {
         this.backdrop = in.readString();
     }
 
-    public static final Parcelable.Creator<MovieItem> CREATOR = new Parcelable.Creator<MovieItem>() {
+    public static final Creator<MovieItem> CREATOR = new Creator<MovieItem>() {
         @Override
         public MovieItem createFromParcel(Parcel source) {
             return new MovieItem(source);

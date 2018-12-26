@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context="com.hendrabratanata.moviecatalog.MainActivity"
     android:id="@+id/activity_main"
     android:padding="16dp">
 

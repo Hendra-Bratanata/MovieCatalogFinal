@@ -2,7 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hendrabratanata.moviecatalog">
 
+    <permission
+        android:name="com.hendrabratanata.moviecatalog.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.hendrabratanata.moviecatalog.WRITE_DATABASE"
+        android:protectionLevel="normal" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -27,12 +36,48 @@
             android:name=".Activity.Upcoming"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_upcoming"
-            android:theme="@style/FullscreenTheme"/>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".Activity.nowShow"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_nowShow"
-            android:theme="@style/FullscreenTheme"/>
+            android:theme="@style/FullscreenTheme" />
+
+        <provider
+            android:name=".Provider.provider"
+            android:authorities="com.hendrabratanata.moviecatalog"
+            android:exported="true"
+            android:readPermission="com.hendrabratanata.moviecatalog.READ_DATABASE"
+            android:writePermission="com.hendrabratanata.moviecatalog.WRITE_DATABASE" />
+
+        <activity
+            android:name=".Activity.Favorite"
+            android:label="FAVORITE" />
+
+        <receiver android:name=".FavoriteWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/favorite_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <receiver
+            android:name=".Support.AlarmReciver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".Activity.NotifSetting" />
+
+        <service
+            android:name=".Support.MyIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

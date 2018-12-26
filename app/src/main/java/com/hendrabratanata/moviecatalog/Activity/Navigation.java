@@ -21,6 +21,8 @@ import com.hendrabratanata.moviecatalog.Fragment.HomeFragment;
 import com.hendrabratanata.moviecatalog.Fragment.NowShowingFragment;
 import com.hendrabratanata.moviecatalog.Fragment.UpcommingFragment;
 import com.hendrabratanata.moviecatalog.R;
+import com.hendrabratanata.moviecatalog.Support.AlarmReciver;
+import com.hendrabratanata.moviecatalog.Support.NotifPrefe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +40,27 @@ public class Navigation extends AppCompatActivity
     @BindView(R.id.viewPager) ViewPager viewPager;
     @BindView(R.id.drawer_layout) DrawerLayout drawer;
     @BindView(R.id.nav_view) NavigationView navigationView;
-
+    String TAG = "tag";
+private AlarmReciver alarmReciver;
+private NotifPrefe notifPrefe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.navigation);
         ButterKnife.bind(this);
+        alarmReciver = new AlarmReciver();
+        notifPrefe = new NotifPrefe(this);
 
+
+        if(notifPrefe.getFirstRun()==null){
+            notifPrefe.setFirstRun("false");
+            notifPrefe.setDailyTime(NotifSetting.NOTIF_DAILY);
+            notifPrefe.setReleaseTime(NotifSetting.NOTIF_RELEASE);
+            notifPrefe.setChkDaily("true");
+            notifPrefe.setChkRelease("true");
+            alarmReciver.setRepeatingRelease(this,notifPrefe.getReleaseTime(),AlarmReciver.TYPE_RELEASE,"PESAN_RELEASE");
+            alarmReciver.setRepeatingAlarmDaily(this,notifPrefe.getDailyTime(), AlarmReciver.TYPE_DAILY,NotifSetting.PESAN_DAILY);
+        }
 
         setSupportActionBar(toolbar);
 
@@ -61,7 +77,6 @@ public class Navigation extends AppCompatActivity
 
         navigationView.setNavigationItemSelectedListener(this);
     }
-
 
 
     @Override
@@ -89,6 +104,9 @@ public class Navigation extends AppCompatActivity
                Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
                startActivity(intent);
                return true;
+           case R.id.action_notif:
+               Intent intent1 = new Intent(Navigation.this,NotifSetting.class);
+               startActivity(intent1);
        }
 
 
@@ -113,6 +131,10 @@ public class Navigation extends AppCompatActivity
             Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
             startActivity(intent);
 
+        }
+        else if(id == R.id.nav_fav){
+            Intent intent = new Intent(Navigation.this,Favorite.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -154,11 +176,14 @@ public class Navigation extends AppCompatActivity
         String up = getResources().getString(R.string.up);
         String now = getResources().getString(R.string.now);
 
+
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mSectionsPagerAdapter.addFragment(new HomeFragment(),Home);
         mSectionsPagerAdapter.addFragment(new NowShowingFragment(),now);
         mSectionsPagerAdapter.addFragment(new UpcommingFragment(),up);
+
         viewPager.setAdapter(mSectionsPagerAdapter);
     }
+
 
 }
